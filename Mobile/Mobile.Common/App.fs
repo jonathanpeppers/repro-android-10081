@@ -35,7 +35,8 @@ let update msg model =
             model.AudioPlayer.Play data
             { model with Audio = Playing key }, []
         with e ->
-            Material.Styles.Controls.SnackbarHost.Post (e.Message, null, Avalonia.Threading.DispatcherPriority.Normal)
+            //Material.Styles.Controls.SnackbarHost.Post (e.Message, null, Avalonia.Threading.DispatcherPriority.Normal)
+            Console.WriteLine("Error playing audio: " + e.ToString())
             { model with Audio = FailedToLoad key }, []
 
 let view _model =
